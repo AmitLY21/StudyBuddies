@@ -23,6 +23,9 @@
 		15001E03284228A20034E834 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15001E02284228A20034E834 /* Utilities.swift */; };
 		15001E0628422E550034E834 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15001E0528422E550034E834 /* GoogleService-Info.plist */; };
 		15001E08284260DC0034E834 /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15001E07284260DC0034E834 /* ProfilePage.swift */; };
+		15EC8E9D2843BA1B0067CDA6 /* NetFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EC8E9C2843BA1B0067CDA6 /* NetFriendsViewController.swift */; };
+		15EC8EA22843BD600067CDA6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EC8EA02843BD600067CDA6 /* UserTableViewCell.swift */; };
+		15EC8EA32843BD600067CDA6 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15EC8EA12843BD600067CDA6 /* UserTableViewCell.xib */; };
 		5D12B8A16475A4E622024A91 /* Pods_StudyBuddiesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9B8949182C9D4D20C4D9B2 /* Pods_StudyBuddiesTests.framework */; };
 		D9E872B1A48A3A196C58471C /* Pods_StudyBuddies_StudyBuddiesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C24800A7CFE5E1C34C0A5B /* Pods_StudyBuddies_StudyBuddiesUITests.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +67,9 @@
 		15001E02284228A20034E834 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		15001E0528422E550034E834 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		15001E07284260DC0034E834 /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
+		15EC8E9C2843BA1B0067CDA6 /* NetFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetFriendsViewController.swift; sourceTree = "<group>"; };
+		15EC8EA02843BD600067CDA6 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		15EC8EA12843BD600067CDA6 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		3C9FAEA7886181463F03C1C3 /* Pods-StudyBuddiesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyBuddiesTests.release.xcconfig"; path = "Target Support Files/Pods-StudyBuddiesTests/Pods-StudyBuddiesTests.release.xcconfig"; sourceTree = "<group>"; };
 		40C24800A7CFE5E1C34C0A5B /* Pods_StudyBuddies_StudyBuddiesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyBuddies_StudyBuddiesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B890FA21CBDC3801399303 /* Pods-StudyBuddies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyBuddies.release.xcconfig"; path = "Target Support Files/Pods-StudyBuddies/Pods-StudyBuddies.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 				15001DCD28421A960034E834 /* SceneDelegate.swift */,
 				15001E04284228A80034E834 /* Helpers */,
 				15001E0128421FC00034E834 /* View Controllers */,
+				15EC8EA42843BD6C0067CDA6 /* Table View Cells */,
 				15001DD128421A960034E834 /* Main.storyboard */,
 				15001DD428421A980034E834 /* Assets.xcassets */,
 				15001DD628421A980034E834 /* LaunchScreen.storyboard */,
@@ -166,6 +173,7 @@
 				15001DFD28421E7C0034E834 /* LoginViewController.swift */,
 				15001DFF28421E960034E834 /* HomeViewController.swift */,
 				15001E07284260DC0034E834 /* ProfilePage.swift */,
+				15EC8E9C2843BA1B0067CDA6 /* NetFriendsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -176,6 +184,15 @@
 				15001E02284228A20034E834 /* Utilities.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		15EC8EA42843BD6C0067CDA6 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				15EC8EA02843BD600067CDA6 /* UserTableViewCell.swift */,
+				15EC8EA12843BD600067CDA6 /* UserTableViewCell.xib */,
+			);
+			path = "Table View Cells";
 			sourceTree = "<group>";
 		};
 		9CAFD56612801576EB98BF6E /* Frameworks */ = {
@@ -314,6 +331,7 @@
 				15001E0628422E550034E834 /* GoogleService-Info.plist in Resources */,
 				15001DD528421A980034E834 /* Assets.xcassets in Resources */,
 				15001DD328421A960034E834 /* Main.storyboard in Resources */,
+				15EC8EA32843BD600067CDA6 /* UserTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +463,8 @@
 				15001DCC28421A960034E834 /* AppDelegate.swift in Sources */,
 				15001E03284228A20034E834 /* Utilities.swift in Sources */,
 				15001DFC28421E5D0034E834 /* SignUpViewController.swift in Sources */,
+				15EC8EA22843BD600067CDA6 /* UserTableViewCell.swift in Sources */,
+				15EC8E9D2843BA1B0067CDA6 /* NetFriendsViewController.swift in Sources */,
 				15001DFE28421E7C0034E834 /* LoginViewController.swift in Sources */,
 				15001DCE28421A960034E834 /* SceneDelegate.swift in Sources */,
 				15001E08284260DC0034E834 /* ProfilePage.swift in Sources */,

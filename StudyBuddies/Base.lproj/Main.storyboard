@@ -161,11 +161,12 @@
         <!--Home-->
         <scene sceneID="WL1-F1-uXg">
             <objects>
-                <navigationController navigationBarHidden="YES" id="sja-Dg-xvr" sceneMemberID="viewController">
+                <navigationController id="sja-Dg-xvr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="X6N-jy-6N3">
                         <color key="badgeColor" red="0.4039215686" green="0.65098039220000004" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e8n-EB-Yg1">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OBb-Th-tAe">
@@ -278,11 +279,12 @@
         <!--Profile-->
         <scene sceneID="f1X-Es-fvO">
             <objects>
-                <navigationController navigationBarHidden="YES" id="eFE-ci-CeL" sceneMemberID="viewController">
+                <navigationController id="eFE-ci-CeL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="J2B-x4-bOK">
                         <color key="badgeColor" red="0.4039215686" green="0.65098039220000004" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qgi-9L-uYN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YYM-HN-lFr">
@@ -296,7 +298,7 @@
             </objects>
             <point key="canvasLocation" x="3568" y="766"/>
         </scene>
-        <!--Profile Page-->
+        <!--Profile-->
         <scene sceneID="ETa-m5-V0I">
             <objects>
                 <viewController id="TIW-He-bOe" customClass="ProfilePage" customModule="StudyBuddies" customModuleProvider="target" sceneMemberID="viewController">
@@ -305,14 +307,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic" translatesAutoresizingMaskIntoConstraints="NO" id="Kj8-Te-mrJ">
-                                <rect key="frame" x="87" y="94" width="240" height="240"/>
+                                <rect key="frame" x="87" y="138" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Lyw-wd-Fzp"/>
                                     <constraint firstAttribute="height" constant="240" id="YoZ-82-h7M"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Israel Israeli" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Zk-Mu-oHL">
-                                <rect key="frame" x="8" y="358" width="398" height="21"/>
+                                <rect key="frame" x="8" y="402" width="398" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="AUO-Rd-6Ar"/>
                                 </constraints>
@@ -321,7 +323,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nDe-gJ-9F2">
-                                <rect key="frame" x="8" y="415" width="398" height="102"/>
+                                <rect key="frame" x="8" y="459" width="398" height="102"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Study -  Software Engineer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfH-pC-opY">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="41"/>
@@ -338,7 +340,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBE-eO-Nnk">
-                                <rect key="frame" x="32" y="549" width="350" height="50"/>
+                                <rect key="frame" x="32" y="593" width="350" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="R1v-kH-s1p"/>
                                 </constraints>
@@ -367,7 +369,7 @@
                             <constraint firstItem="jfW-Yy-94Q" firstAttribute="trailing" secondItem="2Zk-Mu-oHL" secondAttribute="trailing" constant="8" id="pt3-nR-hdh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="SUv-AF-v7q"/>
+                    <navigationItem key="navigationItem" title="Profile" id="SUv-AF-v7q"/>
                     <connections>
                         <outlet property="btnPingMe" destination="SBE-eO-Nnk" id="Zfi-Xl-8E1"/>
                         <outlet property="profileImage" destination="Kj8-Te-mrJ" id="BS5-IT-S8c"/>
@@ -380,11 +382,12 @@
         <!--NetFriends-->
         <scene sceneID="Oee-US-wT7">
             <objects>
-                <navigationController navigationBarHidden="YES" id="NcW-Qg-9Ml" sceneMemberID="viewController">
+                <navigationController id="NcW-Qg-9Ml" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="NetFriends" image="person.3" catalog="system" id="Pvc-fe-qlI">
                         <color key="badgeColor" red="0.4039215686" green="0.65098039220000004" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xxs-4v-xaE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0BW-wg-bV8">
@@ -398,7 +401,7 @@
             </objects>
             <point key="canvasLocation" x="3567" y="95"/>
         </scene>
-        <!--View Controller-->
+        <!--News Feed-->
         <scene sceneID="hyf-2c-1qk">
             <objects>
                 <viewController id="Rv2-hO-bND" sceneMemberID="viewController">
@@ -406,25 +409,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="WXN-Y8-w6E"/>
-                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                        <color key="backgroundColor" red="0.4039215686" green="0.65098039220000004" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eMR-hf-cia"/>
+                    <navigationItem key="navigationItem" title="News Feed" id="eMR-hf-cia"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8p8-UM-cPo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4467" y="-582"/>
         </scene>
-        <!--View Controller-->
+        <!--NetFriends-->
         <scene sceneID="MES-yV-2hE">
             <objects>
-                <viewController id="U1d-LM-VQM" sceneMemberID="viewController">
+                <viewController id="U1d-LM-VQM" customClass="NetFriendsViewController" customModule="StudyBuddies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pSt-Jt-166">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="175" estimatedRowHeight="-1" sectionHeaderHeight="10" estimatedSectionHeaderHeight="10" sectionFooterHeight="10" estimatedSectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="iKN-by-wJk">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <sections/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Dgq-R8-7sv"/>
-                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <color key="backgroundColor" red="0.4039215686" green="0.65098039220000004" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Dgq-R8-7sv" firstAttribute="trailing" secondItem="iKN-by-wJk" secondAttribute="trailing" id="0pf-26-10F"/>
+                            <constraint firstItem="iKN-by-wJk" firstAttribute="leading" secondItem="Dgq-R8-7sv" secondAttribute="leading" id="6PA-17-JTT"/>
+                            <constraint firstItem="iKN-by-wJk" firstAttribute="top" secondItem="Dgq-R8-7sv" secondAttribute="top" id="N8b-Ji-XBw"/>
+                            <constraint firstItem="Dgq-R8-7sv" firstAttribute="bottom" secondItem="iKN-by-wJk" secondAttribute="bottom" id="bVW-72-5ne"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="7Ud-lT-RBu"/>
+                    <navigationItem key="navigationItem" title="NetFriends" id="7Ud-lT-RBu"/>
+                    <connections>
+                        <outlet property="netFriendsTableView" destination="iKN-by-wJk" id="fSw-NL-Vip"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjP-xR-bjY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -440,14 +459,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
