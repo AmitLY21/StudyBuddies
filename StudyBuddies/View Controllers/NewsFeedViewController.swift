@@ -6,16 +6,20 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var NewsFeedTableView: UITableView!
     
     @IBOutlet weak var uploadPost: UIButton!
     
-    var news:[String] = ["Peace Among Users" , "Happy Birthday!" , "Hello there folks! Searching for a partner in iOS Development Course." , "Searching for a study buddy in Hedva 1! Cookies on me ;)" , "Looking for a senior to teach me Design Patterns."]
+    var news = [Post]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadPosts()
         
         Utilities.styleFilledButton(uploadPost)
         let nib = UINib(nibName: "PostsTableViewCell" , bundle: nil)
@@ -30,11 +34,22 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = NewsFeedTableView.dequeueReusableCell(withIdentifier: "PostsTableViewCell", for: indexPath) as! PostsTableViewCell
-
         cell.profileImage.setRounded()
-        cell.profileName.text = "Israel Israeli"
-        cell.postDate.text = "\(getTimeStampDateString())"
-        cell.postInfo.text = news[indexPath.row]
+        
+        let db = Firestore.firestore()
+        db.collection("users").whereField("uid", isEqualTo: news[indexPath.row].createdByUID)
+            .getDocuments() { (snapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for d in snapshot!.documents {
+                        print("\(d.documentID) => \(d.data())")
+                        cell.profileName.text = d["name"] as? String
+                    }
+                }
+            }
+        cell.postDate.text = news[indexPath.row].uploadDate
+        cell.postInfo.text = news[indexPath.row].postInfo
         
         return cell;
     }
@@ -42,14 +57,53 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     //TODO Move to user profile page
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         showToast(message: "You tapped \(indexPath.row)", font: UIFont.systemFont(ofSize: 14))
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let destination = storyboard.instantiateViewController(withIdentifier: "profile") as! ProfilePage
+        destination.uid = news[indexPath.row].createdByUID
+        navigationController?.pushViewController(destination, animated: true)
     }
     
-    func getTimeStampDateString() -> String {
-            let date = Date.now
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
-            let strDate = dateFormatter.string(from: date)
-            return strDate
+    //fetch all posts from the firestore db
+    func loadPosts(){
+        let db = Firestore.firestore().collection("posts")
+        db.addSnapshotListener{snapshot,error in
+            if let err = error {
+                debugPrint("error fetching docs: \(err)")
+            } else {
+                guard let snap = snapshot else {
+                    return
+                }
+                for d in snap.documents {
+                    let post = Post(createdByUID: d["createdByUID"] as! String, uploadDate: d["uploadDate"] as! String, postInfo: d["postInfo"] as! String)
+                    if (!self.news.contains(where: {$0.postInfo == post.postInfo})){
+                        self.news.append(post)
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.NewsFeedTableView.reloadData()
+                }
+            }
         }
-
+        
+        /*
+        db.getDocuments { (snapshot, error) in
+            if let err = error {
+                debugPrint("error fetching docs: \(err)")
+            } else {
+                guard let snap = snapshot else {
+                    return
+                }
+                for d in snap.documents {
+                    let post = Post(createdByUID: d["createdByUID"] as! String, uploadDate: d["uploadDate"] as! String, postInfo: d["postInfo"] as! String)
+                    self.news.append(post)
+                    //print(d.data())
+                }
+                DispatchQueue.main.async {
+                    self.NewsFeedTableView.reloadData()
+                }
+            }
+        }*/
+    }
+    
 }

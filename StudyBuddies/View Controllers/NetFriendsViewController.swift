@@ -6,17 +6,17 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class NetFriendsViewController: UIViewController ,UITableViewDelegate , UITableViewDataSource {
 
     @IBOutlet weak var netFriendsTableView: UITableView!
-    //TODO add datamanager class that reads data from firestore and assign it to an array of users
-    //from the users array we will take the user details!
-    //Temp array for show
-    let users = ["Amit" , "Alon" , "Eyal" , "Moshe"]
+    var users: [User] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadData()
+        
         //register the cell template i created to the table view
         let nib = UINib(nibName: "UserTableViewCell" , bundle: nil)
         netFriendsTableView.register(nib, forCellReuseIdentifier: "UserTableViewCell")
@@ -25,12 +25,17 @@ class NetFriendsViewController: UIViewController ,UITableViewDelegate , UITableV
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return self.users.count
     }
     
-    //TODO open specific user profile page / open whatsapp page with there number
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showToast(message: "tapped \(users[indexPath.row])", font: UIFont.systemFont(ofSize: 14))
+        //showToast(message: "Launch \(users[indexPath.row].name) Profile", font: UIFont.systemFont(ofSize: 14))
+        
+        //Switch to a specific profile page
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let destination = storyboard.instantiateViewController(withIdentifier: "profile") as! ProfilePage
+        destination.uid = users[indexPath.row].uid
+        navigationController?.pushViewController(destination, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,12 +44,32 @@ class NetFriendsViewController: UIViewController ,UITableViewDelegate , UITableV
         
         //editing the cell details
         cell.profileImage.setRounded()
-        cell.profileNameLBL.text = users[indexPath.row]
-        cell.profileDescLBL.text = "Computer Science"
-        var phone :String = "054-5454\(Int.random(in: 0...999))"
-        cell.profilePhonenumberLBL.text = phone
+        cell.profileNameLBL.text = users[indexPath.row].name
+        cell.profileDescLBL.text = users[indexPath.row].studys
+        cell.profilePhonenumberLBL.text = users[indexPath.row].phonenumber
         
         return cell
     }
     
+    //fetch all users from the firestore db
+    func loadData(){
+        let db = Firestore.firestore().collection("users")
+        db.getDocuments { (snapshot, error) in
+            if let err = error {
+                debugPrint("error fetching docs: \(err)")
+            } else {
+                guard let snap = snapshot else {
+                    return
+                }
+                for d in snap.documents {
+                    let tempUser = User(uid: d["uid"] as! String, name: d["name"] as! String, phonenumber: d["phonenumber"] as! String, userEmail: d["userEmail"] as! String, password: d["password"] as! String, studys: d["studys"] as! String, userBio: d["userBio"] as! String)
+                    self.users.append(tempUser)
+                    //print(d.data())
+                }
+                DispatchQueue.main.async {
+                     self.netFriendsTableView.reloadData()
+                 }
+            }
+        }
+    }
 }

@@ -15,6 +15,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var PhoneNumberTextField: UITextField!
     @IBOutlet weak var EmailTextField: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
+    @IBOutlet weak var StudyLBL: UITextField!
+    @IBOutlet weak var userBio: UITextView!
     @IBOutlet weak var BtnSignUp: UIButton!
     @IBOutlet weak var ErrorLabel: UILabel!
     
@@ -23,16 +25,20 @@ class SignUpViewController: UIViewController {
         setUpElements()
     }
     
-   
+    
     
     func setUpElements(){
         //Hide the error label
         ErrorLabel.alpha = 0
+        
+        PhoneNumberTextField.keyboardType = .asciiCapableNumberPad
+        
         //Style the elements
         Utilities.styleTextField(NameTextField)
         Utilities.styleTextField(PhoneNumberTextField)
         Utilities.styleTextField(EmailTextField)
         Utilities.styleTextField(PasswordTextField)
+        Utilities.styleTextField(StudyLBL)
         Utilities.styleFilledButton(BtnSignUp)
         
         
@@ -44,7 +50,9 @@ class SignUpViewController: UIViewController {
         if NameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             PhoneNumberTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             EmailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            PasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            PasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            StudyLBL.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            userBio.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
             
             return "Please fill in all fields."
         }
@@ -75,7 +83,8 @@ class SignUpViewController: UIViewController {
             let phoneNumber = PhoneNumberTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = EmailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = PasswordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
+            let studys = StudyLBL.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let bio = userBio.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             // Create the user
             Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                 
@@ -90,7 +99,8 @@ class SignUpViewController: UIViewController {
                     // User was created successfully, now store the first name and last name
                     let db = Firestore.firestore()
                     
-                    db.collection("users").addDocument(data: ["name":name, "phonenumber":phoneNumber, "uid": result!.user.uid ]) { (error) in
+                    db.collection("users").addDocument(
+                        data:["name":name, "phonenumber":phoneNumber,"userEmail":email,"password": password,"studys":studys, "userBio": bio, "uid": result!.user.uid ]) { (error) in
                         if error != nil {
                             // Show error message
                             self.showError("Error saving user data")
@@ -119,7 +129,6 @@ class SignUpViewController: UIViewController {
         
         view.window?.rootViewController = homeViewController
         view.window?.makeKeyAndVisible()
-        
     }
     
 }

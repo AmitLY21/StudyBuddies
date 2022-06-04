@@ -91,7 +91,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mkK-0X-eon">
                                         <rect key="frame" x="0.0" y="70" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lnh-64-TUu">
                                         <rect key="frame" x="0.0" y="140" width="334" height="50"/>
@@ -189,7 +189,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Bpr-bB-vgt">
-                                <rect key="frame" x="40" y="84" width="334" height="370.5"/>
+                                <rect key="frame" x="40" y="84" width="334" height="610.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZB2-q8-Y4d">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -211,8 +211,23 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7J-9H-JPI">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Study's" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bME-XX-xoN">
                                         <rect key="frame" x="0.0" y="280" width="334" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Bio" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EFP-Kn-joQ">
+                                        <rect key="frame" x="0.0" y="350" width="334" height="150"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="lz1-vF-Oyz"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7J-9H-JPI">
+                                        <rect key="frame" x="0.0" y="520" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="XxM-gY-84Q"/>
                                         </constraints>
@@ -223,7 +238,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxm-3E-kjO">
-                                        <rect key="frame" x="0.0" y="350" width="334" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="590" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
@@ -232,6 +247,7 @@
                                 <constraints>
                                     <constraint firstItem="5wU-3A-Uma" firstAttribute="height" secondItem="ZB2-q8-Y4d" secondAttribute="height" id="MPC-Fq-orB"/>
                                     <constraint firstItem="I7J-9H-JPI" firstAttribute="height" secondItem="ZB2-q8-Y4d" secondAttribute="height" id="Nh9-ux-55c"/>
+                                    <constraint firstItem="bME-XX-xoN" firstAttribute="height" secondItem="ZB2-q8-Y4d" secondAttribute="height" id="Wzw-rg-fkT"/>
                                     <constraint firstItem="KVA-g2-QcA" firstAttribute="height" secondItem="ZB2-q8-Y4d" secondAttribute="height" id="jb2-RJ-TgW"/>
                                     <constraint firstItem="zJt-6L-Fyw" firstAttribute="height" secondItem="ZB2-q8-Y4d" secondAttribute="height" id="sKa-Rl-o1A"/>
                                 </constraints>
@@ -253,6 +269,8 @@
                         <outlet property="NameTextField" destination="ZB2-q8-Y4d" id="xC0-av-OTq"/>
                         <outlet property="PasswordTextField" destination="zJt-6L-Fyw" id="q8D-r3-jDQ"/>
                         <outlet property="PhoneNumberTextField" destination="5wU-3A-Uma" id="iYr-yn-wbS"/>
+                        <outlet property="StudyLBL" destination="bME-XX-xoN" id="2PM-Qa-03R"/>
+                        <outlet property="userBio" destination="EFP-Kn-joQ" id="ZyP-DR-CLB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8j-Dq-IIe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -301,7 +319,7 @@
         <!--Profile-->
         <scene sceneID="ETa-m5-V0I">
             <objects>
-                <viewController id="TIW-He-bOe" customClass="ProfilePage" customModule="StudyBuddies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" id="TIW-He-bOe" customClass="ProfilePage" customModule="StudyBuddies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4dW-At-xlC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -380,6 +398,9 @@
                     <navigationItem key="navigationItem" title="Profile" id="SUv-AF-v7q"/>
                     <connections>
                         <outlet property="btnPingMe" destination="SBE-eO-Nnk" id="Zfi-Xl-8E1"/>
+                        <outlet property="lblBio" destination="cql-A0-tHg" id="VHZ-wa-A8h"/>
+                        <outlet property="lblName" destination="2Zk-Mu-oHL" id="pxq-bB-cAj"/>
+                        <outlet property="lblStudys" destination="yfH-pC-opY" id="iiD-MU-hU4"/>
                         <outlet property="profileImage" destination="Kj8-Te-mrJ" id="BS5-IT-S8c"/>
                     </connections>
                 </viewController>
@@ -569,6 +590,9 @@
         <image name="pic" width="3744" height="5616"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

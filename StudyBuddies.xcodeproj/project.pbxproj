@@ -23,6 +23,7 @@
 		15001E03284228A20034E834 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15001E02284228A20034E834 /* Utilities.swift */; };
 		15001E0628422E550034E834 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15001E0528422E550034E834 /* GoogleService-Info.plist */; };
 		15001E08284260DC0034E834 /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15001E07284260DC0034E834 /* ProfilePage.swift */; };
+		15C1E35F284B5C4C00D5DB10 /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C1E35E284B5C4C00D5DB10 /* Objects.swift */; };
 		15EC8E9D2843BA1B0067CDA6 /* NetFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EC8E9C2843BA1B0067CDA6 /* NetFriendsViewController.swift */; };
 		15EC8EA22843BD600067CDA6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EC8EA02843BD600067CDA6 /* UserTableViewCell.swift */; };
 		15EC8EA32843BD600067CDA6 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15EC8EA12843BD600067CDA6 /* UserTableViewCell.xib */; };
@@ -71,6 +72,7 @@
 		15001E02284228A20034E834 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		15001E0528422E550034E834 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		15001E07284260DC0034E834 /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
+		15C1E35E284B5C4C00D5DB10 /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
 		15EC8E9C2843BA1B0067CDA6 /* NetFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetFriendsViewController.swift; sourceTree = "<group>"; };
 		15EC8EA02843BD600067CDA6 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		15EC8EA12843BD600067CDA6 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			children = (
 				15001DCB28421A960034E834 /* AppDelegate.swift */,
 				15001DCD28421A960034E834 /* SceneDelegate.swift */,
+				15C1E35E284B5C4C00D5DB10 /* Objects.swift */,
 				15001E04284228A80034E834 /* Helpers */,
 				15001E0128421FC00034E834 /* View Controllers */,
 				15EC8EA42843BD6C0067CDA6 /* Table View Cells */,
@@ -484,6 +487,7 @@
 				15001DFE28421E7C0034E834 /* LoginViewController.swift in Sources */,
 				15001DCE28421A960034E834 /* SceneDelegate.swift in Sources */,
 				15001E08284260DC0034E834 /* ProfilePage.swift in Sources */,
+				15C1E35F284B5C4C00D5DB10 /* Objects.swift in Sources */,
 				15001E0028421E960034E834 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
