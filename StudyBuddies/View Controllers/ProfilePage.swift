@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
+import LetterAvatarKit
 class ProfilePage: UIViewController {
 
     @IBOutlet weak var profileImage: UIImageView!
@@ -28,7 +29,7 @@ class ProfilePage: UIViewController {
             loadUser(uid: self.uid)
         }
         
-        setUpElements()
+        
     }
     
     func loadUser(uid : String) {
@@ -42,10 +43,13 @@ class ProfilePage: UIViewController {
                         if(tempUID == uid){
                             self.user = User(uid: d["uid"] as! String, name: d["name"] as! String, phonenumber: d["phonenumber"] as! String, userEmail: d["userEmail"] as! String, password: d["password"] as! String, studys: d["studys"] as! String, userBio: d["userBio"] as! String)
                             
-                            self.lblName.text = self.user?.name
-                            self.lblStudys.text = self.user?.studys
-                            self.lblBio.text = self.user?.userBio
-                            
+                            self.setUpElements()
+//                            self.lblName.text = self.user?.name
+//                            self.lblStudys.text = self.user?.studys
+//                            self.lblBio.text = self.user?.userBio
+//                            self.profileImage.image = LetterAvatarMaker().setUsername(self.user.name).build()
+//                            self.profileImage.setRounded()
+
                             //print("\(d.documentID) => \(d.data())")
                         }
                     }
@@ -54,11 +58,13 @@ class ProfilePage: UIViewController {
     }
 
     func setUpElements(){
-        profileImage.setRounded()
         Utilities.styleFilledButton(btnPingMe)
-        lblName.text = user?.name
+        let currName = user?.name
+        lblName.text = currName
         lblStudys.text = user?.studys
         lblBio.text = user?.userBio
+        profileImage.image = LetterAvatarMaker().setUsername(currName!).setBackgroundColors([.random()]).build()
+        profileImage.setRounded()
     }
 
     //Open whatsapp page
@@ -77,31 +83,3 @@ class ProfilePage: UIViewController {
 
     }
 }
-
-extension UIImageView {
-    func setRounded() {
-        layer.cornerRadius = bounds.height/2
-        layer.masksToBounds = true
-    }
-}
-
-extension UIViewController {
-
-func showToast(message : String, font: UIFont) {
-
-    let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
-    toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-    toastLabel.textColor = UIColor.white
-    toastLabel.font = font
-    toastLabel.textAlignment = .center;
-    toastLabel.text = message
-    toastLabel.alpha = 1.0
-    toastLabel.layer.cornerRadius = 10;
-    toastLabel.clipsToBounds  =  true
-    self.view.addSubview(toastLabel)
-    UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
-         toastLabel.alpha = 0.0
-    }, completion: {(isCompleted) in
-        toastLabel.removeFromSuperview()
-    })
-} }

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import LetterAvatarKit
 
 class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -20,7 +21,7 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         
         loadPosts()
-        
+                
         Utilities.styleFilledButton(uploadPost)
         let nib = UINib(nibName: "PostsTableViewCell" , bundle: nil)
         NewsFeedTableView.register(nib, forCellReuseIdentifier: "PostsTableViewCell")
@@ -34,27 +35,27 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = NewsFeedTableView.dequeueReusableCell(withIdentifier: "PostsTableViewCell", for: indexPath) as! PostsTableViewCell
-        cell.profileImage.setRounded()
         
         let db = Firestore.firestore()
-        db.collection("users").whereField("uid", isEqualTo: news[indexPath.row].createdByUID)
-            .getDocuments() { (snapshot, err) in
+        db.collection("users").whereField("uid", isEqualTo: news[indexPath.row].createdByUID).getDocuments() { (snapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
                     for d in snapshot!.documents {
                         print("\(d.documentID) => \(d.data())")
                         cell.profileName.text = d["name"] as? String
+                        cell.profileImage.image = LetterAvatarMaker().setUsername(d["name"] as! String).setBackgroundColors([.random()]).build()
+                        cell.profileImage.setRounded()
                     }
                 }
             }
+ 
         cell.postDate.text = news[indexPath.row].uploadDate
         cell.postInfo.text = news[indexPath.row].postInfo
         
         return cell;
     }
     
-    //TODO Move to user profile page
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         showToast(message: "You tapped \(indexPath.row)", font: UIFont.systemFont(ofSize: 14))
         
@@ -107,3 +108,4 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
 }
+

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import LetterAvatarKit
 
 class NetFriendsViewController: UIViewController ,UITableViewDelegate , UITableViewDataSource {
 
@@ -43,6 +44,7 @@ class NetFriendsViewController: UIViewController ,UITableViewDelegate , UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell" , for: indexPath) as! UserTableViewCell
         
         //editing the cell details
+        cell.profileImage.image = LetterAvatarMaker().setUsername(users[indexPath.row].name).setBackgroundColors([.random()]).build()
         cell.profileImage.setRounded()
         cell.profileNameLBL.text = users[indexPath.row].name
         cell.profileDescLBL.text = users[indexPath.row].studys

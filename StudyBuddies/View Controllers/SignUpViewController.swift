@@ -40,8 +40,7 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(PasswordTextField)
         Utilities.styleTextField(StudyLBL)
         Utilities.styleFilledButton(BtnSignUp)
-        
-        
+
     }
     //Check the fields and validate the data ,
     //return nil if everything is good else return the error message
@@ -66,6 +65,7 @@ class SignUpViewController: UIViewController {
         }
         return nil
     }
+    
     @IBAction func signUpTapped(_ sender: Any) {
         
         // Validate the fields
