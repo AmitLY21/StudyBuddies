@@ -4,6 +4,10 @@
 ## This app was created with the goal of creating an easy social platform for student who wants to meet their study buddies!
 ### Technologies I have used : xCode 13.4 , swift 5 (Storyboard) , Firebase Authentication , Firebase Firestore , LetterAvatarMaker (Cocoapod)
 
+
+### GIF Demo:
+![](https://user-images.githubusercontent.com/62396197/172441431-55ce2f75-cef8-4df0-b234-0ade813c83ae.gif)
+
 ### The Splash screen when you open the App: 🎆🎆
 <img src="https://user-images.githubusercontent.com/62396197/172438722-313e7759-d5be-4e6c-91fe-f5ecaf94d926.png" alt="NetFriends" width="200" height="400"/>
 
