@@ -5,7 +5,7 @@
 ### Technologies I have used : xCode 13.4 , swift 5 (Storyboard) , Firebase Authentication , Firebase Firestore , LetterAvatarMaker (Cocoapod)
 
 ### The Splash screen when you open the App: 🎆🎆
-<img src="https://user-images.githubusercontent.com/62396197/172438712-52d7580b-3f4c-494e-891e-0a6b7ee31872.png" alt="splash" width="200" height="400"/>
+<img src="https://user-images.githubusercontent.com/62396197/172438722-313e7759-d5be-4e6c-91fe-f5ecaf94d926.png" alt="NetFriends" width="200" height="400"/>
 
 ### The Home screen when you open the App: 
 <img src="https://user-images.githubusercontent.com/62396197/172438705-5ae5e8e5-ea22-4408-bc2a-96340347a86b.png" alt="homePage" width="200" height="400"/>
@@ -14,10 +14,10 @@
 
 ### After Clicking on a upload post this following page appears: 
 ### Create Post page: 💬💬
-<img src="https://user-images.githubusercontent.com/62396197/172438717-692d49a8-a001-49f4-a74f-8146eac49d16.png" alt="createPost" width="200" height="400"/>  <img src="https://user-images.githubusercontent.com/62396197/148754679-6388d1ff-dd01-4b9d-92db-e5aab3a18314.png" alt="propertyPage2" width="200" height="400"/>
+<img src="https://user-images.githubusercontent.com/62396197/172438717-692d49a8-a001-49f4-a74f-8146eac49d16.png" alt="createPost" width="200" height="400"/>  
 
 ### NetFriends page: 🫂🫂
-<img src="https://user-images.githubusercontent.com/62396197/172438722-313e7759-d5be-4e6c-91fe-f5ecaf94d926.png" alt="NetFriends" width="200" height="400"/>
+<img src="https://user-images.githubusercontent.com/62396197/172438712-52d7580b-3f4c-494e-891e-0a6b7ee31872.png" alt="splash" width="200" height="400"/>
 
 ### Profile page: 
 <img src="https://user-images.githubusercontent.com/62396197/172438700-09709f76-af67-4e5b-9255-7f4c79016d64.png" alt="עמוד אהבתי" width="200" height="400"/>
